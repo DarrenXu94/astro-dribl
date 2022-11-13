@@ -1,9 +1,9 @@
 <template>
   <nav>
     <a href="/" :class="{ highlight: pathname == '/' }">Ladder</a>
-    <a href="/results" :class="{ highlight: pathname == '/results' }">Results</a>
+    <a href="/results" :class="{ highlight: pathname.includes('results') }">Results</a>
 
-    <a href="/fixtures" :class="{ highlight: pathname == '/fixtures' }">Fixtures</a>
+    <a href="/fixtures" :class="{ highlight: pathname.includes('fixtures') }">Fixtures</a>
   </nav>
 </template>
 
@@ -14,7 +14,8 @@ export default defineComponent({
   name: 'Navbar',
   props: {
     pathname: {
-      required: true
+      required: true,
+      type: String
     }
   },
   components: {
