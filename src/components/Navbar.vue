@@ -1,6 +1,8 @@
 <template>
   <nav>
     <a href="/" :class="{ highlight: pathname == '/' }">Ladder</a>
+    <a href="/results" :class="{ highlight: pathname == '/results' }">Results</a>
+
     <a href="/fixtures" :class="{ highlight: pathname == '/fixtures' }">Fixtures</a>
   </nav>
 </template>
@@ -14,9 +16,6 @@ export default defineComponent({
     pathname: {
       required: true
     }
-  },
-  mounted() {
-    console.log(this.pathname)
   },
   components: {
   },

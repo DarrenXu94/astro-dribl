@@ -15,7 +15,7 @@
     "astro": "^1.6.7",
     "dayjs": "^1.11.6",
     "lodash.get": "^4.4.2",
-    "lodash.sortby": "^4.7.0",
+    "lodash.orderby": "^4.6.0",
     "lodash.uniqby": "^4.7.0",
     "pinia": "^2.0.23",
     "sass": "^1.56.1",

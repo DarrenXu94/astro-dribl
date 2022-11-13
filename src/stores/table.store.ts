@@ -4,7 +4,7 @@ import { getData } from "../services/Table.service";
 // @ts-ignore
 import uniqby from "lodash.uniqby";
 // @ts-ignore
-import sortby from "lodash.sortby";
+import orderby from "lodash.orderby";
 
 export const useTableStore = defineStore("table", {
   state: () => ({
@@ -22,13 +22,14 @@ export const useTableStore = defineStore("table", {
         recent = [...team.attributes.recent_matches, ...recent];
       }
 
-      this.upcoming = sortby(
+      this.upcoming = orderby(
         uniqby(upcoming, "attributes.event_name"),
         "attributes.date"
       );
-      this.recent = sortby(
+      this.recent = orderby(
         uniqby(recent, "attributes.event_name"),
-        "attributes.date"
+        "attributes.date",
+        "desc"
       );
     },
     async fetchTable() {

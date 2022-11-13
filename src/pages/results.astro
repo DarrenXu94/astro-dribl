@@ -1,0 +1,24 @@
+---
+// Component Imports
+import Results from "../components/Results.vue";
+import BasicLayout from "../layouts/BasicLayout.astro";
+import Navbar from "../components/Navbar.vue";
+
+const { pathname } = Astro.url;
+---
+
+<BasicLayout>
+  <header>
+    <h1>Capital Futsal League</h1>
+    <h2>Open</h2>
+  </header>
+  <Navbar pathname={pathname} />
+  <Results client:visible />
+</BasicLayout>
+
+<style>
+  header {
+    background: white;
+    padding: 1rem;
+  }
+</style>

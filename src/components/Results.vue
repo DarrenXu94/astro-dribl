@@ -1,16 +1,16 @@
 <template>
-  <div class="fixtures">
-    <div v-for="match of tableStore.upcoming" :key="match.hash_id" class="fixtures-container">
+  <div class="results">
+    <div v-for="match of tableStore.recent" :key="match.hash_id" class="results-container">
       <span class="date-span">
         {{ dayjs(match.attributes.date).format('DD MMM') }}
       </span>
-      <div class="fixture-card">
+      <div class="result-card">
         <span class="align-right">
           {{ match.attributes.home_club_name }}
         </span>
         <img :src="match.attributes.home_logo" alt="Home team logo">
         <div>
-          {{ dayjs(match.attributes.date).format('HH:mm') }}
+          {{ match.attributes.home_score }} : {{ match.attributes.away_score }}
         </div>
         <img :src="match.attributes.away_logo" alt="Away team logo">
         <span class="align-left">
@@ -30,13 +30,8 @@ import customParseFormat from 'dayjs/plugin/customParseFormat'
 dayjs.extend(customParseFormat)
 
 export default defineComponent({
-  name: 'Fixtures',
+  name: 'Results',
   components: {
-  },
-  data() {
-    return {
-      dayjs
-    };
   },
   async mounted() {
     this.tableStore.fetchTable()
@@ -47,10 +42,15 @@ export default defineComponent({
       tableStore
     }
   },
+  data() {
+    return {
+      dayjs
+    };
+  },
 });
 </script>
 <style lang="scss">
-.fixtures {
+.results {
 
   .align-right {
     text-align: right;
@@ -67,7 +67,7 @@ export default defineComponent({
   padding: 5px;
   border-radius: 12px;
 
-  .fixtures-container {
+  .results-container {
     padding-top: 4px;
 
     .date-span {
@@ -75,14 +75,14 @@ export default defineComponent({
       font-weight: bold;
     }
 
-    .fixture-card {
+    .result-card {
       font-weight: normal;
       position: relative;
       display: grid;
       -webkit-box-align: center;
       place-items: center;
       padding: 0px 5px;
-      grid-template-columns: 1fr 25px 40px 25px 1fr;
+      grid-template-columns: 1fr 25px 50px 25px 1fr;
       column-gap: 15px;
       user-select: none;
       height: 70px;
