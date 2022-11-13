@@ -1,0 +1,26 @@
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <style>
+      html,
+      body {
+        font-family: system-ui;
+        margin: 0;
+        --light-grey: rgb(152, 152, 152);
+        --highlight: #1caf9a;
+        --border-color: rgba(245, 245, 245, 1);
+      }
+      body {
+        background-color: rgb(240, 241, 242);
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <slot />
+    </main>
+  </body>
+</html>

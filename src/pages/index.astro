@@ -1,0 +1,24 @@
+---
+// Component Imports
+import TableRenderer from "../components/TableRenderer.vue";
+import Navbar from "../components/Navbar.vue";
+import BasicLayout from "../layouts/BasicLayout.astro";
+
+const { pathname } = Astro.url;
+---
+
+<BasicLayout>
+  <header>
+    <h1>Capital Futsal League</h1>
+    <h2>Open</h2>
+  </header>
+  <Navbar pathname={pathname} />
+  <TableRenderer client:visible />
+</BasicLayout>
+
+<style>
+  header {
+    background: white;
+    padding: 1rem;
+  }
+</style>
