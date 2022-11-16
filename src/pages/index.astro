@@ -7,7 +7,7 @@ import BasicLayout from "../layouts/BasicLayout.astro";
 const { pathname } = Astro.url;
 
 const response = await fetch(
-  `https://function-app-dx.netlify.app/.netlify/functions/dribl`
+  `https://main--function-app-dx.netlify.app/.netlify/functions/football`
 );
 const data = await response.json();
 ---
