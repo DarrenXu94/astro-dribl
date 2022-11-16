@@ -1,3 +1,7 @@
+export interface TableMessage {
+  message: Table[];
+}
+
 export interface Table {
   hash_id: string;
   type: string;

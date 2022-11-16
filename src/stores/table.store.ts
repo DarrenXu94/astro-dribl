@@ -32,11 +32,14 @@ export const useTableStore = defineStore("table", {
         "desc"
       );
     },
-    async fetchTable() {
-      const res = await getData();
-      this.tables = res as any;
-
-      this.getFixtures(res as any);
+    setTableData(data: Table[]) {
+      this.tables = data;
     },
+    // async fetchTable() {
+    //   const res = await getData();
+    //   this.tables = res as any;
+
+    //   this.getFixtures(res as any);
+    // },
   },
 });

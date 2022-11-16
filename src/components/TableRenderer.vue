@@ -30,22 +30,24 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
+import { defineComponent, PropType } from 'vue';
 // @ts-ignore
 import get from 'lodash.get'
-import type { Table } from '../models/competition';
+import type { Table, TableMessage } from '../models/competition';
 import { useTableStore } from '../stores/table.store';
-// const movies = await fetch('https://jsonplaceholder.typicode.com/todos').then((response) =>
-//   response.json()
-// );
-
 
 export default defineComponent({
   name: 'TableRenderer',
   components: {
   },
+  props: {
+    parentData: {
+      required: true,
+      type: Object as PropType<TableMessage>
+    }
+  },
   async mounted() {
-    this.tableStore.fetchTable()
+    this.tableStore.setTableData(this.parentData.message as Table[])
   },
   setup() {
     const tableStore = useTableStore()
@@ -56,7 +58,6 @@ export default defineComponent({
   data() {
     return {
       get,
-      tableData: [] as Table[],
       cols: [
         {
           text: '#',

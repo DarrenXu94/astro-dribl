@@ -5,6 +5,11 @@ import Navbar from "../components/Navbar.vue";
 import BasicLayout from "../layouts/BasicLayout.astro";
 
 const { pathname } = Astro.url;
+
+const response = await fetch(
+  `${import.meta.env.PUBLIC_API_URL}${import.meta.env.PUBLIC_END_POINT}`
+);
+const data = await response.json();
 ---
 
 <BasicLayout>
@@ -13,7 +18,7 @@ const { pathname } = Astro.url;
     <h2>Open</h2>
   </header>
   <Navbar pathname={pathname} />
-  <TableRenderer client:visible />
+  <TableRenderer parentData={data} client:visible />
 </BasicLayout>
 
 <style>
