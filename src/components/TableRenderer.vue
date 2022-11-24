@@ -43,11 +43,11 @@ export default defineComponent({
   props: {
     parentData: {
       required: true,
-      type: Object as PropType<TableMessage>
+      type: Object as PropType<Table[]>
     }
   },
   async mounted() {
-    this.tableStore.setTableData(this.parentData.message as Table[])
+    this.tableStore.setTableData(this.parentData as Table[])
   },
   setup() {
     const tableStore = useTableStore()
