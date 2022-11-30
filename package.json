@@ -9,7 +9,8 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "scrape": "node scrape.cjs"
+    "scrape": "node scrape.cjs",
+    "log": "node log.cjs"
   },
   "dependencies": {
     "@astrojs/vue": "^1.2.1",

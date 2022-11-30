@@ -18,4 +18,4 @@ jobs:
           echo $OUTPUT >> $GITHUB_ENV
           echo 'EOF' >> $GITHUB_ENV
       - name: log
-        run: echo ${{ env.JSON_RESPONSE }}
+        run: npm run log
