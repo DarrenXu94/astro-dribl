@@ -12,19 +12,19 @@ permissions:
 jobs:
   fetch:
     runs-on: ubuntu-latest
-      steps:
-        - name: Checkout
-          uses: actions/checkout@v2
-        - name: Install
-          run: npm ci
-        - name: Install playwright browsers
-          run: npx playwright install --with-deps
-        - name: Run tests
-          run: |
-            OUTPUT=$(npm run scrape)
-            echo 'JSON_RESPONSE<<EOF' >> $GITHUB_ENV
-            echo $OUTPUT >> $GITHUB_ENV
-            echo 'EOF' >> $GITHUB_ENV
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Install
+        run: npm ci
+      - name: Install playwright browsers
+        run: npx playwright install --with-deps
+      - name: Run tests
+        run: |
+          OUTPUT=$(npm run scrape)
+          echo 'JSON_RESPONSE<<EOF' >> $GITHUB_ENV
+          echo $OUTPUT >> $GITHUB_ENV
+          echo 'EOF' >> $GITHUB_ENV
   build:
     runs-on: ubuntu-latest
     steps:
