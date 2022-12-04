@@ -11,7 +11,8 @@ const { pathname } = Astro.url;
 // );
 // const data = await response.json();
 
-const processData = process.env.JSON_RESPONSE.split("[").slice(1).join("[");
+const processData =
+  "[" + process.env.JSON_RESPONSE.split("[").slice(1).join("[");
 
 console.log(processData);
 
