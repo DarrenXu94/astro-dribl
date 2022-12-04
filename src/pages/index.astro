@@ -11,8 +11,9 @@ const { pathname } = Astro.url;
 // );
 // const data = await response.json();
 
-console.log(process.env.JSON_RESPONSE, "data to load");
-console.log(process.env);
+const processData = process.env.JSON_RESPONSE.split("[").slice(1).join("[");
+
+console.log(JSON.parse(processData));
 
 const data = [] as any;
 ---

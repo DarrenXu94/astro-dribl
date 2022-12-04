@@ -29,16 +29,6 @@ jobs:
         uses: actions/checkout@v2
       - name: Install, build, and upload your site
         uses: withastro/action@v0
-  # build:
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - name: Checkout your repository using git
-  #       uses: actions/checkout@v2
-  #     - name: Install, build, and upload your site
-  #       uses: withastro/action@v0
-  #   env:
-  #     PUBLIC_API_URL: https://function-app-dx.netlify.app
-  #     PUBLIC_END_POINT: /.netlify/functions/dribl
 
   deploy:
     needs: fetch
