@@ -13,6 +13,8 @@ const { pathname } = Astro.url;
 
 const processData = process.env.JSON_RESPONSE.split("[").slice(1).join("[");
 
+console.log(processData);
+
 console.log(JSON.parse(processData));
 
 const data = [] as any;
