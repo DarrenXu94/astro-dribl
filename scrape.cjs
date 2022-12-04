@@ -5,7 +5,7 @@ const handleConsoleMsg = async (msg) => {
     for (const arg of msg.args()) {
       const parsed = await arg.jsonValue();
       if (typeof parsed == "object" && "data" in parsed) {
-        console.log(parsed.data);
+        console.log(JSON.stringify(parsed.data, null, 2));
       }
     }
   } catch (e) {
