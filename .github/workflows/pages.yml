@@ -41,7 +41,7 @@ jobs:
   #     PUBLIC_END_POINT: /.netlify/functions/dribl
 
   deploy:
-    needs: build
+    needs: fetch
     runs-on: ubuntu-latest
     environment:
       name: github-pages
