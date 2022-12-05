@@ -35,11 +35,11 @@ export const useTableStore = defineStore("table", {
     setTableData(data: Table[]) {
       this.tables = data;
     },
-    // async fetchTable() {
-    //   const res = await getData();
-    //   this.tables = res as any;
+    async fetchTable() {
+      const res = await getData();
+      this.tables = res as any;
 
-    //   this.getFixtures(res as any);
-    // },
+      this.getFixtures(res as any);
+    },
   },
 });

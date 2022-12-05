@@ -1,10 +1,14 @@
+import fs from "fs";
+
 export const getData = async () => {
-  if (location.hostname === "localhost" || location.hostname === "127.0.0.1") {
-    const res = await fetch("data.txt").then((response) => response.json());
-    return res.message;
+  if (process.env.NODE_ENV === "development") {
+    const res = fs.readFileSync("./public/data.txt", "utf-8");
+    const parsed = JSON.parse(res);
+    return parsed.message;
   }
-  const res = await fetch(
-    `${import.meta.env.PUBLIC_API_URL}${import.meta.env.PUBLIC_END_POINT}`
-  ).then((response) => response.json());
-  return res.message;
+  const processData =
+    "[" + process.env.JSON_RESPONSE.split("[").slice(1).join("[");
+
+  const data = JSON.parse(processData) as any;
+  return data;
 };

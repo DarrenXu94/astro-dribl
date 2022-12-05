@@ -23,18 +23,26 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
+import { defineComponent, PropType } from 'vue';
 import { useTableStore } from '../stores/table.store';
 import dayjs from 'dayjs'
 import customParseFormat from 'dayjs/plugin/customParseFormat'
+import type { Table } from '../models/competition';
 dayjs.extend(customParseFormat)
 
 export default defineComponent({
   name: 'Results',
   components: {
   },
+  props: {
+    parentData: {
+      required: true,
+      type: Object as PropType<Table[]>
+    }
+  },
   async mounted() {
-    this.tableStore.fetchTable()
+    this.tableStore.setTableData(this.parentData as Table[]);
+    this.tableStore.getFixtures(this.parentData as Table[]);
   },
   setup() {
     const tableStore = useTableStore()

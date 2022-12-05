@@ -3,8 +3,10 @@
 import Fixtures from "../components/Fixtures.vue";
 import BasicLayout from "../layouts/BasicLayout.astro";
 import Navbar from "../components/Navbar.vue";
+import { getData } from "../services/Table.service";
 
 const { pathname } = Astro.url;
+const data = await getData();
 ---
 
 <BasicLayout>
@@ -13,7 +15,7 @@ const { pathname } = Astro.url;
     <h2>Open</h2>
   </header>
   <Navbar pathname={pathname} />
-  <Fixtures client:visible />
+  <Fixtures parentData={data} client:visible />
 </BasicLayout>
 
 <style>

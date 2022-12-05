@@ -3,22 +3,11 @@
 import TableRenderer from "../components/TableRenderer.vue";
 import Navbar from "../components/Navbar.vue";
 import BasicLayout from "../layouts/BasicLayout.astro";
+import { getData } from "../services/Table.service";
 
 const { pathname } = Astro.url;
 
-// const response = await fetch(
-//   `https://main--function-app-dx.netlify.app/.netlify/functions/dribl`
-// );
-// const data = await response.json();
-
-const processData =
-  "[" + process.env.JSON_RESPONSE.split("[").slice(1).join("[");
-
-console.log(processData);
-
-console.log(JSON.parse(processData));
-
-const data = JSON.parse(processData) as any;
+const data = await getData();
 ---
 
 <BasicLayout>
