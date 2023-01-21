@@ -2,6 +2,8 @@ name: Github Pages Astro CI
 
 on:
   workflow_dispatch:
+  schedule:
+    - cron: "0 12 * * 1"
 
 # Allow this job to clone the repo and create a page deployment
 permissions:
